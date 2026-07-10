@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nightshift Protocol</title><meta name="theme-color" content="#050708">
+<link rel="stylesheet" href="./styles/game.css">
+<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.169.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.169.0/examples/jsm/"}}</script>
+</head>
+<body>
+<div id="app"><canvas id="game" aria-label="Nightshift Protocol 3D game"></canvas>
+<div id="loading"><div class="brand"><i></i><span>ASTERION SYSTEMS</span></div><h1>NIGHTSHIFT<br><em>PROTOCOL</em></h1><p id="load-status">INITIALIZING SITE 19…</p><div class="loadbar"><b></b></div></div>
+<div id="menu" class="panel hidden"><div class="eyebrow">ASTERION SYSTEMS // SITE 19</div><h1>NIGHTSHIFT<br><span>PROTOCOL</span></h1><p class="lede">You have one shift to audit a condemned automation lab. Its residents were never decommissioned.</p><button id="start">BEGIN NIGHT <kbd>ENTER</kbd></button><button id="continue" class="secondary">CONTINUE NIGHT</button><div class="brief"><b>SHIFT DIRECTIVE</b><span>Survive 12 AM—6 AM. Track three autonomous exhibits. Doors, lights and surveillance draw from one failing reserve.</span></div><div class="controls"><span><kbd>A/D</kbd> LOOK</span><span><kbd>SPACE</kbd> TABLET</span><span><kbd>Q/E</kbd> DOORS</span><span><kbd>1—0</kbd> CAMERAS</span><span><kbd>ESC</kbd> PAUSE</span></div></div>
+<div id="hud" class="hidden"><div class="top"><div><small>LOCAL TIME</small><strong id="clock">12 AM</strong></div><div class="night"><small>SHIFT</small><strong id="night">NIGHT 1</strong></div></div><div id="warning"></div><div class="power"><div class="power-head"><span>RESERVE</span><strong id="battery">100%</strong></div><div class="meter"><i id="battery-fill"></i></div><div class="usage"><span>DRAW</span><div id="draw-bars"></div></div></div><button id="tablet-toggle">SURVEILLANCE <kbd>SPACE</kbd></button></div>
+<div id="tablet" class="hidden"><div class="tablet-shell"><div class="feed-head"><span id="cam-label">CAM 01</span><b id="cam-name">ASSEMBLY STAGE</b><span id="rec">● REC</span></div><div class="scanlines"></div><div class="noise"></div><div id="offline">SIGNAL LOST</div><div class="cam-map" id="cam-map"></div><div class="feed-foot"><span id="tablet-time">12:00 AM</span><span id="tablet-power">PWR 100%</span><span>LINK // ENCRYPTED</span></div></div></div>
+<div id="door-controls" class="hidden"><div class="door-bank left"><button data-action="left-light">LIGHT <kbd>Z</kbd></button><button data-action="left-door">SEAL <kbd>Q</kbd></button></div><div class="door-bank right"><button data-action="right-light">LIGHT <kbd>C</kbd></button><button data-action="right-door">SEAL <kbd>E</kbd></button></div></div>
+<div id="pause" class="panel modal hidden"><div class="eyebrow">SYSTEM INTERRUPT</div><h2>SHIFT PAUSED</h2><button id="resume">RESUME <kbd>ESC</kbd></button><button id="restart" class="secondary">RESTART NIGHT</button><button id="quit" class="secondary">RETURN TO TITLE</button></div>
+<div id="ending" class="panel modal hidden"><div class="eyebrow" id="ending-kicker">SHIFT REPORT</div><h2 id="ending-title">6:00 AM</h2><p id="ending-copy"></p><button id="next-night">NEXT NIGHT</button><button id="ending-retry" class="secondary">RETRY</button></div>
+<div id="jumpscare" class="hidden"><div class="shock"></div><strong id="killer">BREACH</strong></div>
+<div id="rotate">ROTATE DEVICE<br><small>Landscape view required</small></div>
+</div><script>setTimeout(()=>{const l=document.querySelector('#loading'),m=document.querySelector('#menu');if(l&&!l.classList.contains('hidden')){l.classList.add('hidden');m.classList.remove('hidden')}},2600)</script><script type="module" src="./src/main.js"></script></body></html>
